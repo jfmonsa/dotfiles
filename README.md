@@ -1,7 +1,7 @@
 # About
 This repo is mantain for personal use, although you can use it for your dotfiles as well
 
-I crated this to have a little guide to install the software needed for setup my pc after a fresh minimal instalation and save my configs (only for arch-based distros)
+I created this to have a little guide for install all the software needed for my pc after a fresh minimal instalation and save my configs (only for arch-based distros)
 
 # Intallation
 ```bash
@@ -13,9 +13,11 @@ sudo pacman -S alsa pulseaudio polkit polkit-gnome
 
 # packages needed by dotfiles
 sudo pacman -S awesome neovim zsh kitty neofetch picom rofi sxhkd mdcat lsd bat spacefm firefox nitrogen git flameshot --needed
-
+```
+you should read the arch wiki for each pakage to setting properly them. For example follow the arch wiki on how to set zsh as default shell
+```bash
 #for customize gtk and qt themes
-sudo pacman -S qt5 lxappearance-gtk3
+sudo pacman -S qt5ct lxappearance-gtk3
 
 # Other programs
 sudo pacman -S alsa-utils pavucontrol   gparted zathura keepassxc --needed
@@ -24,6 +26,28 @@ And the following packages from the AUR
 ```bash
 paru -S vscodium onlyoffice-bin
 ```
+
+## Fonts
+install Fira Code Nerd Font from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip) and follow the [arch wiki to manage fonts](https://wiki.archlinux.org/title/fonts)
+
+## Icons
+```bash
+sudo pacman -S papirus-icon-theme
+```
+## gtk and qt themes
+```bash
+sudo pacman -S breeze-gtk breeze
+```
+You set these themes and icons packs manually throught qtct5 and lxappearence apps
+
+## Color scheme
+I'm using the the Tomorrow Night theme in vscode and in the terminal
+* To set a color theme for kitty terminal [here](https://github.com/dexpota/kitty-themes)
+* To set a color theme for vscode search in the vscode marketplace. (If you're using vscodium you should follow [this guide](https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management) to install some extentions)
+
+
+
+## Wallpapers
 
 # For auto numLock on
 ```bash
@@ -51,7 +75,7 @@ firefox --new-window http://localhost:631/
 # Create your repo
 create your repo in your `$HOME` directory:
 ```bash
-mkdir $HOME/.dotfiles_repo #you mush have logged as your diary-user (not root)
+mkdir $HOME/.dotfiles_repo #you mush have logged as your diary-user (not as root)
 ```
 Before creating your directory, you have to git init
 ```bash
