@@ -9,7 +9,7 @@ alias icat="kitty +kitten icat"
 alias ls="lsd"
 alias ll="lsd -l"
 alias cat="bat"
-#-- The following were added inpirated by:
+#-- The following were added inspired by:
 #-- https://wiki.archlinux.org/title/Color_output_in_console
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
