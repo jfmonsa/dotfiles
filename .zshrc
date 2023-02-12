@@ -105,7 +105,7 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 source /usr/share/zsh/scripts/sudo.plugin.zsh/sudo.plugin.zsh
 
 #aliases
-source /home/jfmonsa/.aliases.zsh
+source ~/.aliases.zsh
 
 #pfetch
 pfetch
