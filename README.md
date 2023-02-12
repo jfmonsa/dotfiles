@@ -3,6 +3,8 @@ This repo is mantain for personal use, although you can use it for your dotfiles
 
 I created this to have a little guide for install all the software needed for my pc after a fresh minimal instalation and save my configs (only for arch-based distros)
 
+* See my [arch installation notes (personal guide)](~/.config/0.arch-installation-guide.md)
+
 # Intallation
 * You must have install an AUR helper, I'm using [paru](https://github.com/Morganamilo/paru) here but you can use any other
 ```bash
@@ -19,7 +21,7 @@ chsh -s /usr/bin/zsh $USER
 paru -S pfetch
 
 # packages needed by dotfiles
-sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm firefox nitrogen git flameshot --needed
+sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot --needed
 ```
 ```bash
 #for customize gtk and qt themes
