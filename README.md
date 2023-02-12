@@ -4,23 +4,29 @@ This repo is mantain for personal use, although you can use it for your dotfiles
 I created this to have a little guide for install all the software needed for my pc after a fresh minimal instalation and save my configs (only for arch-based distros)
 
 # Intallation
+* You must have install an AUR helper, I'm using [paru](https://github.com/Morganamilo/paru) here but you can use any other
 ```bash
 # update your system
 sudo pacman -Syu
 
 # needed drivers
-sudo pacman -S alsa pulseaudio polkit polkit-gnome 
+sudo pacman -S alsa pulseaudio polkit polkit-gnome --needed
+
+#set zsh as default shell
+sudo pacman -s zsh
+sudo chsh -s /usr/bin/zsh root
+chsh -s /usr/bin/zsh $USER
+paru -S pfetch
 
 # packages needed by dotfiles
-sudo pacman -S awesome neovim zsh kitty neofetch picom rofi sxhkd mdcat lsd bat spacefm firefox nitrogen git flameshot --needed
+sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm firefox nitrogen git flameshot --needed
 ```
-you should read the arch wiki for each pakage to setting properly them. For example follow the arch wiki on how to set zsh as default shell
 ```bash
 #for customize gtk and qt themes
 sudo pacman -S qt5ct lxappearance-gtk3
 
 # Other programs
-sudo pacman -S alsa-utils pavucontrol   gparted zathura keepassxc --needed
+sudo pacman -S alsa-utils pavucontrol gparted zathura keepassxc --needed
 ```
 And the following packages from the AUR
 ```bash
@@ -40,19 +46,20 @@ sudo pacman -S breeze-gtk breeze
 ```
 You set these themes and icons packs manually throught qtct5 and lxappearence apps
 
+## Wallpaper
+You would like to change my default wallpaper, modify it directrly from `nitrogen` app
+
 ## Color scheme
 I'm using the the Tomorrow Night theme in vscode and in the terminal
 * To set a color theme for kitty terminal [here](https://github.com/dexpota/kitty-themes)
 * To set a color theme for vscode search in the vscode marketplace. (If you're using vscodium you should follow [this guide](https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management) to install some extentions)
 
-
-
-## Wallpapers
+Other nice theme whit an awesome crossig-app support is dracula color scheme
 
 # For auto numLock on
 ```bash
 # numlock on in xorg server
-numlockx
+pacman -S numlockx
 # numlock on in a tty
 paru -S systemd-numlockontty
 sudo systemctl enable numLockOnTty
@@ -63,6 +70,7 @@ sudo systemctl enable numLockOnTty
 # For printers
 ```bash
 sudo pacman -S cups cups-pdf system-config-printer
+sudo systemctl enable cups
 ```
 You have to search the specific packages-drivers for your printer [here](https://wiki.archlinux.org/title/CUPS), then you can install your printer
 
@@ -118,7 +126,7 @@ git clone --bare <git-repo-url> $HOME/.cfg
 ```
 Checkout the actual content from the bare repository to your `$HOME`:
 ```bash
-dot-git checkout
+dot-git checkout main
 ```
 run this
 ```bash
