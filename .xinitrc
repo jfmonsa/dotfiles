@@ -38,6 +38,6 @@ xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
 #Custom keymap using xmodmap
 #https://www.youtube.com/watch?v=r3hxmzwwyyE&t=657s
-#https://wiki.archlinux.org/title/xmodmap
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+#https://wiki.archlinux.org/title/xmodmap 
+xmodmap ~/.Xmodmap
 exec xterm -geometry 80x66+0+0 -name login

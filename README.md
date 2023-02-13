@@ -21,7 +21,7 @@ chsh -s /usr/bin/zsh $USER
 paru -S pfetch --needed
 
 # packages needed by dotfiles
-sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot --needed
+sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot trash-cli --needed
 ```
 ```bash
 #for customize gtk and qt themes
