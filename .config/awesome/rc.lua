@@ -57,6 +57,10 @@ awful.spawn.with_shell("nitrogen --restore") --write this in the theme file
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("numlockx on")
+-- for xmodmap, switching caps_lock for esc and vicesversa
+awful.spawn.with_shell('xmodmap -e "keycode 66 = Escape"')
+awful.spawn.with_shell('xmodmap -e "keycode 9 = Caps_Lock"')
+awful.spawn.with_shell('xmodmap -e "clear lock"')
 -- ################### Autostart apps - Custom #######################
 
 -- This is used later as the default terminal and editor to run.

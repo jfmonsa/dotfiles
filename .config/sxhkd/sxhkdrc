@@ -6,43 +6,45 @@
 #-- Browser
 super + b
 	firefox --browser
-
 #-- firefox privated window
 super + shift + b
 	firefox --private-window
-
 
 #-- File manager
 super + e
 	spacefm
 
-#-- Emoji virtual keyboard
-super + period
-	rofi -modi emoji -show emoji
-
-#-- Screen shots
-
-# ss selector
+#-- screen shots
 super + shift + p
-	flameshot gui
-
+	timeout 40s flameshot gui
+# delay of 3 seconds
+super + shift + p + d
+	timeout 40s flameshot gui -d 3000
 # full screen shot
 super + f + p
 	flameshot full
 
-
-# Restart sxhkd hotkey daemon
-super + shift + x
-  pkill -usr1 -x sxhkd 
-#&& notify-send "sxhkd config" "Reloaded."
+#-- Emoji selector
+super + period
+	rofi -modi emoji -show emoji
 ###### Launch Apps ######
 
 ##### Power managment ####
 super + {alt,ctrl,alt + ctrl} + Menu
 	systemctl {suspend,reboot,poweroff}
-
 ##### Power managment ####
 
-###### Show config ######
-super + shift + s
-	bat /home/jfmonsa/.config/sxhkd/sxhkdrc | kitty
+##### Volume ####
+super + {F10, F11, F12}
+	amixer -q set Master {toggle,5%-,5%+}
+##### Volume ####
+
+##### sxhkd ####
+#-- show config
+#super + shift + s
+	#kitty @ bat /home/jfmonsa/.config/sxhkd/sxhkdrc
+	
+#-- Restart sxhkd hotkey daemon
+super + shift + x
+	pkill -usr1 -x sxhkd 
+	#&& notify-send "sxhkd config" "Reloaded."

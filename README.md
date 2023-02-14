@@ -28,7 +28,7 @@ sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat
 sudo pacman -S qt5ct lxappearance-gtk3 --needed
 
 # Other programs
-sudo pacman -S alsa-utils pavucontrol gparted zathura keepassxc --needed
+sudo pacman -S alsa-utils pavucontrol gparted zathura keepassxc vlc --needed
 ```
 And the following packages from the AUR
 ```bash
@@ -37,6 +37,11 @@ paru -S vscodium onlyoffice-bin --needed
 
 ## Fonts
 install Fira Code Nerd Font from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip) and follow the [arch wiki to manage fonts](https://wiki.archlinux.org/title/fonts)
+
+Install packages for display special characters
+```bash
+pacman -S noto-fonts noto-fonts-cjk noto-fonts-extra
+```
 
 ## Icons
 ```bash
