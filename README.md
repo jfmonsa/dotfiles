@@ -21,7 +21,7 @@ chsh -s /usr/bin/zsh $USER
 paru -S pfetch --needed
 
 # packages needed by dotfiles
-sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot trash-cli --needed
+sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-setxkbmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot trash-cli --needed
 ```
 ```bash
 #for customize gtk and qt themes
@@ -60,15 +60,7 @@ change it from `nitrogen` app
 I'm using the the Tomorrow Night theme in vscode and in the terminal
 * To set a color theme for kitty terminal [here](https://github.com/dexpota/kitty-themes)
 * To set a color theme for vscode search in the vscode marketplace. (If you're using vscodium you should follow [this guide](https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management) to install some extentions)
-
-Other nice theme with an awesome cross-app support is dracula color scheme
-
-# For auto numLock on
-```bash
-# numlock on in xorg server
-pacman -S numlockx --needed
-# numlock on in a tty
-paru -S systemd-numlockontty --needed
+Other nice theme with an awesome cross-app support is dracula color scheme # For auto numLock on ```bash # numlock on in xorg server pacman -S numlockx --needed # numlock on in a tty paru -S systemd-numlockontty --needed
 sudo systemctl enable numLockOnTty
 ```
 [More info](https://wiki.archlinux.org/title/Activating_numlock_on_bootup_(Espa%C3%B1ol))
