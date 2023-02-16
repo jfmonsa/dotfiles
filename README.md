@@ -18,52 +18,49 @@ sudo pacman -S alsa pulseaudio polkit polkit-gnome --needed
 sudo pacman -s zsh
 sudo chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USER
-paru -S pfetch
+paru -S pfetch --needed
 
 # packages needed by dotfiles
-sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-xmodmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot --needed
+sudo pacman -S awesome neovim kitty neofetch picom rofi sxhkd xorg-setxkbmap mdcat lsd bat spacefm xclip firefox nitrogen git flameshot trash-cli --needed
 ```
 ```bash
 #for customize gtk and qt themes
-sudo pacman -S qt5ct lxappearance-gtk3
+sudo pacman -S qt5ct lxappearance-gtk3 --needed
 
 # Other programs
-sudo pacman -S alsa-utils pavucontrol gparted zathura keepassxc --needed
+sudo pacman -S alsa-utils pavucontrol gparted zathura keepassxc vlc --needed
 ```
 And the following packages from the AUR
 ```bash
-paru -S vscodium onlyoffice-bin
+paru -S vscodium onlyoffice-bin --needed
 ```
 
 ## Fonts
 install Fira Code Nerd Font from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip) and follow the [arch wiki to manage fonts](https://wiki.archlinux.org/title/fonts)
 
+Install packages for display special characters
+```bash
+pacman -S noto-fonts noto-fonts-cjk noto-fonts-extra
+```
+
 ## Icons
 ```bash
-sudo pacman -S papirus-icon-theme
+sudo pacman -S papirus-icon-theme --needed
 ```
 ## gtk and qt themes
 ```bash
-sudo pacman -S breeze-gtk breeze
+sudo pacman -S breeze-gtk breeze --needed
 ```
 You set these themes and icons packs manually throught qtct5 and lxappearence apps
 
 ## Wallpaper
-You would like to change my default wallpaper, modify it directrly from `nitrogen` app
+change it from `nitrogen` app
 
 ## Color scheme
 I'm using the the Tomorrow Night theme in vscode and in the terminal
 * To set a color theme for kitty terminal [here](https://github.com/dexpota/kitty-themes)
 * To set a color theme for vscode search in the vscode marketplace. (If you're using vscodium you should follow [this guide](https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management) to install some extentions)
-
-Other nice theme whit an awesome crossig-app support is dracula color scheme
-
-# For auto numLock on
-```bash
-# numlock on in xorg server
-pacman -S numlockx
-# numlock on in a tty
-paru -S systemd-numlockontty
+Other nice theme with an awesome cross-app support is dracula color scheme # For auto numLock on ```bash # numlock on in xorg server pacman -S numlockx --needed # numlock on in a tty paru -S systemd-numlockontty --needed
 sudo systemctl enable numLockOnTty
 ```
 [More info](https://wiki.archlinux.org/title/Activating_numlock_on_bootup_(Espa%C3%B1ol))
@@ -71,7 +68,7 @@ sudo systemctl enable numLockOnTty
 
 # For printers
 ```bash
-sudo pacman -S cups cups-pdf system-config-printer
+sudo pacman -S cups cups-pdf system-config-printer --needed
 sudo systemctl enable cups
 ```
 You have to search the specific packages-drivers for your printer [here](https://wiki.archlinux.org/title/CUPS), then you can install your printer
