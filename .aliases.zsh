@@ -2,6 +2,7 @@
 alias code="codium"
 alias p="sudo pacman -S"
 alias icat="kitty +kitten icat"
+alias copy="xclip -sel clip "
 
 # terminal color output
 alias ls="lsd"

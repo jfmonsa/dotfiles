@@ -107,5 +107,7 @@ source /usr/share/zsh/scripts/sudo.plugin.zsh/sudo.plugin.zsh
 #aliases
 source ~/.aliases.zsh
 
+#npm
+export PATH=~/.npm-global/bin:$PATH
 #pfetch
 pfetch
