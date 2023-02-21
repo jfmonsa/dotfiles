@@ -37,6 +37,9 @@ super + {alt,ctrl,alt + ctrl} + Menu
 ##### Volume ####
 super + {F10, F11, F12}
 	amixer -q set Master {toggle,5%-,5%+}
+# -- support for keyboards with media keys
+{XF86AudioMute,XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	amixer -q set Master {toggle,5%-,5%+}
 ##### Volume ####
 
 ##### sxhkd ####
