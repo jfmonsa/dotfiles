@@ -1,90 +1,59 @@
 local fn = vim.fn
 
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-   augroup packer_user_config
-   autocmd!
-   autocmd BufWritePost plugins.lua source <afile> | PackerSync
-   augroup end
-   ]]
+require("lazy").setup({
+  -- install your plugins here
+  "wbthomason/packer.nvim", -- have packer manage itself
+  "nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
+  "nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
+  "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
+  "numtostr/comment.nvim", -- easily comment stuff
+  'joosepalviste/nvim-ts-context-commentstring',
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
-
--- Install your plugins here
-return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
- 
-  -- Colorschemes
+  -- colorschemes
   --use "https://github.com/folke/tokyonight.nvim"
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/colorschemes" -- a bunch of colorschemes you can try out
+  "lunarvim/darkplus.nvim",
 
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
+  -- telescope
+  "nvim-telescope/telescope.nvim",
+  'nvim-telescope/telescope-media-files.nvim',
 
-  -- Treesitter
-  use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-  use "p00f/nvim-ts-rainbow"
+  -- treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':tsupdate'
+  },
+  "p00f/nvim-ts-rainbow",
   -- use "nvim-treesitter/playground" <- see sintax tree
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+  "hrsh7th/nvim-cmp", -- the completion plugin
+  "hrsh7th/cmp-buffer", -- buffer completions
+  "hrsh7th/cmp-path", -- path completions
+  "hrsh7th/cmp-cmdline",-- cmdline completions
+  "saadparwaiz1/cmp_luasnip", -- snippet completions
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-nvim-lua",
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  "l3mon4d3/luasnip", --snippet engine
+  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/mason.nvim" -- simple to use language server installer
-  use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
-  use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+  -- lsp
+  "neovim/nvim-lspconfig",-- enable lsp
+  "williamboman/mason.nvim",-- simple to use language server installer
+  "williamboman/mason-lspconfig.nvim",-- simple to use language server installer
+  'jose-elias-alvarez/null-ls.nvim', -- lsp diagnostics and code actions
+})
