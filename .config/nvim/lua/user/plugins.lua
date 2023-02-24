@@ -20,7 +20,17 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
   "numtostr/comment.nvim", -- easily comment stuff
-  'joosepalviste/nvim-ts-context-commentstring',
+
+  -- Tabs (Buffers)
+  "akinsho/bufferline.nvim",
+  "moll/vim-bbye",
+
+  -- Git
+  "lewis6991/gitsigns.nvim",
+
+  -- Nvim-tree
+  'kyazdani42/nvim-web-devicons',
+  'kyazdani42/nvim-tree.lua',
 
   -- colorschemes
   --use "https://github.com/folke/tokyonight.nvim"
@@ -37,12 +47,14 @@ require("lazy").setup({
     build = ':tsupdate'
   },
   "p00f/nvim-ts-rainbow",
+  'joosepalviste/nvim-ts-context-commentstring',
   -- use "nvim-treesitter/playground" <- see sintax tree
+
   -- cmp plugins
   "hrsh7th/nvim-cmp", -- the completion plugin
   "hrsh7th/cmp-buffer", -- buffer completions
   "hrsh7th/cmp-path", -- path completions
-  "hrsh7th/cmp-cmdline",-- cmdline completions
+  "hrsh7th/cmp-cmdline", -- cmdline completions
   "saadparwaiz1/cmp_luasnip", -- snippet completions
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lua",
@@ -52,8 +64,8 @@ require("lazy").setup({
   "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- lsp
-  "neovim/nvim-lspconfig",-- enable lsp
-  "williamboman/mason.nvim",-- simple to use language server installer
-  "williamboman/mason-lspconfig.nvim",-- simple to use language server installer
+  "neovim/nvim-lspconfig", -- enable lsp
+  "williamboman/mason.nvim", -- simple to use language server installer
+  "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
   'jose-elias-alvarez/null-ls.nvim', -- lsp diagnostics and code actions
 })
