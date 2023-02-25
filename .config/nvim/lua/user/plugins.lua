@@ -14,16 +14,48 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- install your plugins here
-  "wbthomason/packer.nvim", -- have packer manage itself
+  -- Basic stuff
   "nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
   "nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
   "numtostr/comment.nvim", -- easily comment stuff
-
-  -- Tabs (Buffers)
+  {
   "akinsho/bufferline.nvim",
-  "moll/vim-bbye",
+  dependencies = {"https://github.com/moll/vim-bbye"}
+  },
+
+  -- LSP configuration  
+   {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'jose-elias-alvarez/null-ls.nvim', -- lsp diagnostics and code actions
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { 'j-hui/fidget.nvim', opts = {} },
+      -- Additional lua configuration, makes nvim stuff amazing!
+      -- 'folke/neodev.nvim',
+    },
+  },
+
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      "rafamadriz/friendly-snippets",
+      "hrsh7th/cmp-buffer", -- buffer completions
+      "hrsh7th/cmp-path", -- path completions
+      "hrsh7th/cmp-cmdline", -- cmdline completions
+      "saadparwaiz1/cmp_luasnip", -- snippet completions
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+    },
+  },
 
   -- Git
   "lewis6991/gitsigns.nvim",
@@ -32,40 +64,30 @@ require("lazy").setup({
   'kyazdani42/nvim-web-devicons',
   'kyazdani42/nvim-tree.lua',
 
-  -- colorschemes
-  --use "https://github.com/folke/tokyonight.nvim"
-  -- use "lunarvim/colorschemes" -- a bunch of colorschemes you can try out
-  "lunarvim/darkplus.nvim",
+{ -- Theme inspired by Atom
+   -- "lunarvim/darkplus.nvim",
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
 
   -- telescope
   "nvim-telescope/telescope.nvim",
   'nvim-telescope/telescope-media-files.nvim',
 
-  -- treesitter
+ -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':tsupdate'
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      "p00f/nvim-ts-rainbow",
+      'joosepalviste/nvim-ts-context-commentstring',
+      -- "nvim-treesitter/playground" <- see sintax tree
+    },
+    config = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
   },
-  "p00f/nvim-ts-rainbow",
-  'joosepalviste/nvim-ts-context-commentstring',
-  -- use "nvim-treesitter/playground" <- see sintax tree
-
-  -- cmp plugins
-  "hrsh7th/nvim-cmp", -- the completion plugin
-  "hrsh7th/cmp-buffer", -- buffer completions
-  "hrsh7th/cmp-path", -- path completions
-  "hrsh7th/cmp-cmdline", -- cmdline completions
-  "saadparwaiz1/cmp_luasnip", -- snippet completions
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
-
-  -- snippets
-  "l3mon4d3/luasnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-
-  -- lsp
-  "neovim/nvim-lspconfig", -- enable lsp
-  "williamboman/mason.nvim", -- simple to use language server installer
-  "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-  'jose-elias-alvarez/null-ls.nvim', -- lsp diagnostics and code actions
 })
