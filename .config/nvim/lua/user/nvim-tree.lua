@@ -71,6 +71,15 @@ nvim_tree.setup {
         quit_on_open = true,
         window_picker = { enable = true },
     }, ]]
+    --[[ event_handlers = {
+    {
+      event = "event_name",
+      handler = function()
+        vim.cmd [[ NvimTreeClose]]
+        -- do something, the value of arg varies by event.
+     -- end,
+    --} ]]
+ -- },
     renderer = {
         highlight_git = true,
         root_folder_modifier = ":t",

@@ -77,8 +77,8 @@ require("lazy").setup({
       show_trailing_blankline_indent = false,
     },
     config = function()
-      vim.opt.list = true
-      vim.opt.listchars:append "eol:󰌑"
+      -- vim.opt.list = true
+      -- vim.opt.listchars:append "eol:󰌑"
     end,
   },
 
