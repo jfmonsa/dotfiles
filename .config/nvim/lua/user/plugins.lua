@@ -14,6 +14,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
+  -- Theme
+  {
+   -- "lunarvim/darkplus.nvim",
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
+
   -- Basic stuff
   "nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
   "nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
@@ -57,6 +68,20 @@ require("lazy").setup({
     },
   },
 
+  { -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help indent_blankline.txt`
+    opts = {
+      char = '┊',
+      show_trailing_blankline_indent = false,
+    },
+    config = function()
+      vim.opt.list = true
+      vim.opt.listchars:append "eol:󰌑"
+    end,
+  },
+
   -- Git
   "lewis6991/gitsigns.nvim",
 
@@ -64,14 +89,6 @@ require("lazy").setup({
   'kyazdani42/nvim-web-devicons',
   'kyazdani42/nvim-tree.lua',
 
-{ -- Theme inspired by Atom
-   -- "lunarvim/darkplus.nvim",
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
 
   -- telescope
   "nvim-telescope/telescope.nvim",
