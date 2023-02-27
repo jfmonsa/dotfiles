@@ -16,13 +16,6 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
-    -- Comments because depreceated features
-    --open_on_setup = false,
-    --[[ ignore_ft_on_setup = {
-        "startify",
-        "dashboard",
-        "alpha",
-    }, ]]
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = true,
@@ -66,20 +59,6 @@ nvim_tree.setup {
         number = false,
         relativenumber = false,
     },
-    -- Depreceated features
-    --[[ actions = {
-        quit_on_open = true,
-        window_picker = { enable = true },
-    }, ]]
-    --[[ event_handlers = {
-    {
-      event = "event_name",
-      handler = function()
-        vim.cmd [[ NvimTreeClose]]
-        -- do something, the value of arg varies by event.
-     -- end,
-    --} ]]
- -- },
     renderer = {
         highlight_git = true,
         root_folder_modifier = ":t",
@@ -111,5 +90,5 @@ nvim_tree.setup {
                 },
             }
         }
-    }
+    },
 }

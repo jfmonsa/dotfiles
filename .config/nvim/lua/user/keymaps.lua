@@ -96,8 +96,8 @@ keymap('t', '<C-w><C-w>', '<C-\\><C-n><C-w><C-w>', {noremap = true})
 keymap('n', '<C-g>', ':LazyGit<CR>', opts)       -- open/close
 
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>F", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>t", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>T", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>",opts)
 keymap('n', '<leader>ts', ':Telescope symbols<CR>', opts)
