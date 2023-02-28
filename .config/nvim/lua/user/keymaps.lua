@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -17,29 +16,15 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- ====== Global words ======
 -- reload configuracion
 -- keymap('n', '<leader>r', ':source % <CR>', opts)
 -- fast saving with <leader> and s
-keymap("n", "<leader>s", ":w<CR>", opts)
--- keymap('i', '<leader>s', '<C-c>:w<CR>', opts)
+keymap("n", "<leader>s", ":wa<CR>", opts)
+-- save a quit
+keymap("n", "<leader>q", ":xa<CR>", opts)
 
--- don't use arrow keys
-keymap("", "<up>", "<nop>", { noremap = true })
-keymap("", "<down>", "<nop>", { noremap = true })
-keymap("", "<left>", "<nop>", { noremap = true })
-keymap("", "<right>", "<nop>", { noremap = true })
-keymap("i", "<C-h>", "<left>", opts)
-keymap("i", "<C-j>", "<down>", opts)
-keymap("i", "<C-k>", "<up>", opts)
-keymap("i", "<C-l>", "<right>", opts)
--- Insert --
--- Press jk fast to enter
---  keymap("i", "jk", "<ESC>", opts)
---  keymap("i", "kj", "<ESC>", opts)
-
--- Buffers & splits
--- close all windows and exit from neovim
-keymap("n", "<leader>q", ":quitall<CR>", opts)
+-- == Windows
 -- move around splits using Ctrl + {h,j,k,l}
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -50,9 +35,28 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
--- Navigate buffers
+-- == Windows
+-- == buffers (tabs)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-q>", ":w<CR> | :bdelete<CR>", opts)
+keymap("n", "<S-a>", ":Telescope buffers", opts)
+-- == buffers (tabs)
+-- ====== Global words ======
+
+-- ====== text editing ======
+-- Insert --
+-- Press jk fast to enter
+--  keymap("i", "jk", "<esc>", opts)
+-- don't use arrow keys
+keymap("", "<up>", "<nop>", { noremap = true })
+keymap("", "<down>", "<nop>", { noremap = true })
+keymap("", "<left>", "<nop>", { noremap = true })
+keymap("", "<right>", "<nop>", { noremap = true })
+keymap("i", "<C-h>", "<left>", opts)
+keymap("i", "<C-j>", "<down>", opts)
+keymap("i", "<C-k>", "<up>", opts)
+keymap("i", "<C-l>", "<right>", opts)
 
 -- Move text up and down
 -- for normal mode
@@ -72,6 +76,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+-- ====== text editing ======
 
 -- Terminal --
 -- Better terminal navigation
@@ -80,10 +85,7 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
------------------------------------------------------------
--- Applications & Plugins shortcuts:
------------------------------------------------------------
--- open terminal
+-- ==== Plugins bindigns =======
 keymap("n", "<C-t>", ":Term<CR>", { noremap = true })
 keymap("t", "<C-w>h", "<C-\\><C-n><C-w>h", { noremap = true })
 keymap("t", "<C-w>j", "<C-\\><C-n><C-w>j", { noremap = true })
