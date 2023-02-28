@@ -1,20 +1,19 @@
 local configs = require("nvim-treesitter.configs")
-configs.setup {
-  -- ensure_installed = "all",
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
-  auto_install = false,
+configs.setup({
+	-- ensure_installed = "all",
+	-- Add languages to be installed here that you want installed for treesitter
+	ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "help", "vim" },
+	auto_install = false,
 
-  sync_install = false, 
-  ignore_install = { "" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
-
-  },
-  indent = { enable = true, disable = { "yaml", "python" } },
-}
+	sync_install = false,
+	ignore_install = { "" }, -- List of parsers to ignore installing
+	highlight = {
+		enable = true, -- false will disable the whole extension
+		disable = { "" }, -- list of language that will be disabled
+		additional_vim_regex_highlighting = true,
+	},
+	indent = { enable = true, disable = { "yaml", "python" } },
+})
 
 -- The below is the default treesitter config defined for kickstard nvim
 --[[ require('nvim-treesitter.configs').setup {
@@ -50,8 +49,9 @@ configs.setup {
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         [']m'] = '@function.outer',
---]] --        [']]'] = '@class.outer',
-      --[[ },
+--]]
+--        [']]'] = '@class.outer',
+--[[ },
       goto_next_end = {
         [']M'] = '@function.outer',
         [']['] = '@class.outer',
@@ -76,4 +76,5 @@ configs.setup {
     },
   },
 }
-]]-- ]]
+]]
+-- ]]

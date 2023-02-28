@@ -12,11 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
-	-- Basic stuff
-	"nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
-	"nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
-	"numtostr/comment.nvim", -- easily comment stuff
 	-- colorschemes
 	{
 		--"navarasu/onedark.nvim",
@@ -27,103 +22,21 @@ require("lazy").setup({
 		end,
 	},
 
-	-- autopair
-	--use "windwp/nvim-autopairs"
-	-- autoclose.
-	{
-		"m4xshen/autoclose.nvim",
-		config = function()
-			require("autoclose").setup({})
-		end,
-	},
+	-- Basic stuff
+	"nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
+	"nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
 
 	-- icons
-	"kyazdani42/nvim-web-devicons",
-	"adelarsq/vim-devicons-emoji",
-	-- tagviewer
-	--[[ {
-        "liuchengxu/vista.vim",
-        config = function()
-                    require("config.vista")
-        end,
-    }, ]]
-
-	-- highlight, edit, and navigate code
 	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"p00f/nvim-ts-rainbow",
-			"joosepalviste/nvim-ts-context-commentstring",
-			-- "nvim-treesitter/playground" <- see sintax tree
-		},
-		config = function()
-			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		end,
+		"nvim-tree/nvim-web-devicons",
+		priority = 999,
 	},
+	--	"adelarsq/vim-devicons-emoji",
 
-	-- File explorer
-	--[[ {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      -- "nvim-lua/plenary.nvim",
-      --"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      -- "muniftanjim/nui.nvim"
-    },
-  }, ]]
-	{ -- not strictly required, but recommended
-		"kyazdani42/nvim-web-devicons",
-		config = function()
-			require("nvim-web-devicons").setup()
-		end,
-	},
+	-- Git
 	{
-		"kyazdani42/nvim-tree.lua",
-		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
-	},
-	-- status bar
-	--[[{
-		"feline-nvim/feline.nvim",
-		dependencies = {
-			"gitsigns.nvim",
-			"nvim-web-devicons",
-		},
-	},
-  ]]
-
-	{
-		"arsham/arshamiser.nvim",
-		dependencies = {
-			"arsham/arshlib.nvim",
-			"famiu/feline.nvim",
-			"rebelot/heirline.nvim",
-			"kyazdani42/nvim-web-devicons",
-		},
-		config = function()
-			-- ignore any parts you don't want to use
-			vim.cmd.colorscheme("arshamiser_light")
-			require("arshamiser.feliniser")
-			-- or:
-			-- require("arshamiser.heirliniser")
-
-			_G.custom_foldtext = require("arshamiser.folding").foldtext
-			vim.opt.foldtext = "v:lua.custom_foldtext()"
-			-- if you want to draw a tabline:
-			vim.api.nvim_set_option("tabline", [[%{%v:lua.require("arshamiser.tabline").draw()%}]])
-		end,
-	},
-	-- tabs
-	--[[ {
-        "noib3/nvim-cokeline",
-        config = function()
-            require("config.cokeline")
-        end,
-        dependencies = "kyazdani42/nvim-web-devicons",
-    }, ]]
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = { "https://github.com/moll/vim-bbye" },
+		"lewis6991/gitsigns.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	-- LSP configuration
@@ -135,7 +48,7 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			"jose-elias-alvarez/null-ls.nvim", -- lsp diagnostics and code actions
 			-- Useful status updates for LSP
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+			-- `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
 			-- Additional lua configuration, makes nvim stuff amazing!
 			-- 'folke/neodev.nvim',
@@ -159,9 +72,79 @@ require("lazy").setup({
 		},
 	},
 
+	-- highlight, edit, and navigate code
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"p00f/nvim-ts-rainbow",
+			"joosepalviste/nvim-ts-context-commentstring",
+			-- "nvim-treesitter/playground" <- see sintax tree
+		},
+		config = function()
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+		end,
+	},
+
+	-- Layout
+	{
+		"arsham/arshamiser.nvim",
+		dependencies = {
+			"arsham/arshlib.nvim",
+			"famiu/feline.nvim",
+			"rebelot/heirline.nvim",
+		},
+		config = function()
+			-- ignore any parts you don't want to use
+			vim.cmd.colorscheme("arshamiser_light")
+			require("arshamiser.feliniser")
+			-- or:
+			-- require("arshamiser.heirliniser")
+
+			_G.custom_foldtext = require("arshamiser.folding").foldtext
+			vim.opt.foldtext = "v:lua.custom_foldtext()"
+			-- if you want to draw a tabline:
+			vim.api.nvim_set_option("tabline", [[%{%v:lua.require("arshamiser.tabline").draw()%}]])
+		end,
+	},
+	-- tabs
+	--[[ {
+        "noib3/nvim-cokeline",
+        config = function()
+            require("config.cokeline")
+        end,
+    }, ]]
+	{
+		"akinsho/bufferline.nvim",
+		-- 	dependencies = { "https://github.com/moll/vim-bbye" },
+	},
+	-- File explorer
+	--[[ {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      -- "nvim-lua/plenary.nvim",
+      -- "muniftanjim/nui.nvim"
+    },
+  }, ]]
+	{
+		"kyazdani42/nvim-tree.lua",
+		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
+	},
+
+	-- tagviewer
+	--[[ {
+        "liuchengxu/vista.vim",
+        config = function()
+                    require("config.vista")
+        end,
+    }, ]]
+
+	-- Other plugins
+	"norcalli/nvim-colorizer.lua",
+	"numtostr/comment.nvim", -- easily comment stuff
 	{ -- Add indentation guides even on blank lines
 		"lukas-reineke/indent-blankline.nvim",
-		-- Enable `lukas-reineke/indent-blankline.nvim`
 		-- See `:help indent_blankline.txt`
 		opts = {
 			char = "┊",
@@ -173,17 +156,18 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Git
+	-- autopair
+	--use "windwp/nvim-autopairs"
 	{
-		"lewis6991/gitsigns.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"m4xshen/autoclose.nvim",
+		config = function()
+			require("autoclose").setup({})
+		end,
 	},
-	--   "kdheepak/lazygit.nvim",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
 	"nvim-telescope/telescope-media-files.nvim",
 	"nvim-telescope/telescope-symbols.nvim",
-
-	"norcalli/nvim-colorizer.lua",
+	--   "kdheepak/lazygit.nvim",
 })
