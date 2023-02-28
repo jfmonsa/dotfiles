@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 
 -- ====== Global words ======
 -- reload configuracion
--- keymap('n', '<leader>r', ':source % <CR>', opts)
+-- keymap('n', '<leader>r', ':luafile %<CR>', opts)
 -- fast saving with <leader> and s
 keymap("n", "<leader>s", ":wa<CR>", opts)
 -- save a quit
@@ -40,7 +40,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-q>", ":w<CR> | :bdelete<CR>", opts)
-keymap("n", "<S-a>", ":Telescope buffers", opts)
+keymap("n", "<S-c>", ":Telescope buffers<CR>", opts) -- Explore buffers
 -- == buffers (tabs)
 -- ====== Global words ======
 
@@ -86,7 +86,7 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- ==== Plugins bindigns =======
-keymap("n", "<C-t>", ":Term<CR>", { noremap = true })
+--[[ keymap("n", "<C-t>", ":Term<CR>", { noremap = true }) ]]
 keymap("t", "<C-w>h", "<C-\\><C-n><C-w>h", { noremap = true })
 keymap("t", "<C-w>j", "<C-\\><C-n><C-w>j", { noremap = true })
 keymap("t", "<C-w>k", "<C-\\><C-n><C-w>k", { noremap = true })
@@ -106,5 +106,6 @@ keymap(
 keymap("n", "<A-g>", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 keymap("n", "<A-f>", ":Telescope symbols<CR>", opts)
-keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>b", ":SidebarNvimToggle<CR>", opts)
 --[[ keymap('n', '<leader>b', ':Neotree toggle<CR>', opts) ]]

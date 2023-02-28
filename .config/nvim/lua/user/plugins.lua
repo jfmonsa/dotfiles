@@ -132,6 +132,49 @@ require("lazy").setup({
 		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
 	},
 
+	{
+		"sidebar-nvim/sidebar.nvim",
+		config = function()
+			local sidebar = require("sidebar-nvim")
+			local opts = { open = false }
+			sidebar.setup(opts)
+		end,
+		dependencies = { "sidebar-nvim/sections-dap" },
+	},
+
+	-- tagviewer
+	{
+		"liuchengxu/vista.vim",
+		config = function()
+			local g = vim.g
+			local cmd = vim.cmd
+			g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
+			g.vista_default_executive = "ctags"
+			cmd([[let g:vista#renderer#enable_icon = 1]])
+		end,
+		dependencies = { "universal-ctags/ctags" },
+	},
+	--[[ {
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("scrollbar").setup()
+			local colors = require("aarshamiser_light").setup()
+			require("scrollbar").setup({
+
+				handle = {
+					color = colors.bg_highlight,
+				},
+				marks = {
+					Search = { color = colors.orange },
+					Error = { color = colors.error },
+					Warn = { color = colors.warning },
+					Info = { color = colors.info },
+					Hint = { color = colors.hint },
+					Misc = { color = colors.purple },
+				},
+			})
+		end,
+	}, ]]
 	-- tagviewer
 	--[[ {
         "liuchengxu/vista.vim",
@@ -139,7 +182,7 @@ require("lazy").setup({
                     require("config.vista")
         end,
     }, ]]
-
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	-- Other plugins
 	"norcalli/nvim-colorizer.lua",
 	"numtostr/comment.nvim", -- easily comment stuff
