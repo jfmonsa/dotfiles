@@ -13,21 +13,114 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	-- Theme
-	{
-		-- "lunarvim/darkplus.nvim",
-		"navarasu/onedark.nvim",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("onedark")
-		end,
-	},
-
 	-- Basic stuff
 	"nvim-lua/popup.nvim", -- an implementation of the popup api from vim in neovim
 	"nvim-lua/plenary.nvim", -- useful lua functions used ny lots of plugins
-	"windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
 	"numtostr/comment.nvim", -- easily comment stuff
+	-- colorschemes
+	{
+		--"navarasu/onedark.nvim",
+		"Shatur/neovim-ayu",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("ayu-dark")
+		end,
+	},
+
+	-- autopair
+	--use "windwp/nvim-autopairs"
+	-- autoclose.
+	{
+		"m4xshen/autoclose.nvim",
+		config = function()
+			require("autoclose").setup({})
+		end,
+	},
+
+	-- icons
+	"kyazdani42/nvim-web-devicons",
+	"adelarsq/vim-devicons-emoji",
+	-- tagviewer
+	--[[ {
+        "liuchengxu/vista.vim",
+        config = function()
+                    require("config.vista")
+        end,
+    }, ]]
+
+	-- highlight, edit, and navigate code
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"p00f/nvim-ts-rainbow",
+			"joosepalviste/nvim-ts-context-commentstring",
+			-- "nvim-treesitter/playground" <- see sintax tree
+		},
+		config = function()
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+		end,
+	},
+
+	-- File explorer
+	--[[ {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      -- "nvim-lua/plenary.nvim",
+      --"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      -- "muniftanjim/nui.nvim"
+    },
+  }, ]]
+	{ -- not strictly required, but recommended
+		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup()
+		end,
+	},
+	{
+		"kyazdani42/nvim-tree.lua",
+		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
+	},
+	-- status bar
+	--[[{
+		"feline-nvim/feline.nvim",
+		dependencies = {
+			"gitsigns.nvim",
+			"nvim-web-devicons",
+		},
+	},
+  ]]
+
+	{
+		"arsham/arshamiser.nvim",
+		dependencies = {
+			"arsham/arshlib.nvim",
+			"famiu/feline.nvim",
+			"rebelot/heirline.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			-- ignore any parts you don't want to use
+			vim.cmd.colorscheme("arshamiser_light")
+			require("arshamiser.feliniser")
+			-- or:
+			-- require("arshamiser.heirliniser")
+
+			_G.custom_foldtext = require("arshamiser.folding").foldtext
+			vim.opt.foldtext = "v:lua.custom_foldtext()"
+			-- if you want to draw a tabline:
+			vim.api.nvim_set_option("tabline", [[%{%v:lua.require("arshamiser.tabline").draw()%}]])
+		end,
+	},
+	-- tabs
+	--[[ {
+        "noib3/nvim-cokeline",
+        config = function()
+            require("config.cokeline")
+        end,
+        dependencies = "kyazdani42/nvim-web-devicons",
+    }, ]]
 	{
 		"akinsho/bufferline.nvim",
 		dependencies = { "https://github.com/moll/vim-bbye" },
@@ -81,30 +174,16 @@ require("lazy").setup({
 	},
 
 	-- Git
-	"lewis6991/gitsigns.nvim",
-
-	-- Nvim-tree
-	"kyazdani42/nvim-web-devicons",
-	"kyazdani42/nvim-tree.lua",
+	{
+		"lewis6991/gitsigns.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	--   "kdheepak/lazygit.nvim",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
 	"nvim-telescope/telescope-media-files.nvim",
 	"nvim-telescope/telescope-symbols.nvim",
-
-	-- Highlight, edit, and navigate code
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"p00f/nvim-ts-rainbow",
-			"joosepalviste/nvim-ts-context-commentstring",
-			-- "nvim-treesitter/playground" <- see sintax tree
-		},
-		config = function()
-			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		end,
-	},
 
 	"norcalli/nvim-colorizer.lua",
 })

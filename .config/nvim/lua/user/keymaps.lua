@@ -101,7 +101,8 @@ keymap(
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
 	opts
 )
-keymap("n", "<leader>T", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<A-g>", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<A-f>", ":Telescope symbols<CR>", opts)
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>ts", ":Telescope symbols<CR>", opts)
+--[[ keymap('n', '<leader>b', ':Neotree toggle<CR>', opts) ]]
