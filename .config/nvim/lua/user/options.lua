@@ -32,9 +32,9 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	guifont = "FiraCode Nerd Font", -- the font used in graphical neovim applications
+	--[[ guifont = "FiraCode Nerd Font", -- the font used in graphical neovim applications ]]
 }
-
+vim.opt.guifont = { "FiraCode Nerd Font", "h10" }
 vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do

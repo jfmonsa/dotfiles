@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 
 -- ====== Global words ======
 -- reload configuracion
--- keymap('n', '<leader>r', ':luafile %<CR>', opts)
+keymap("n", "<leader>r", ":source %<CR>", opts)
 -- fast saving with <leader> and s
 keymap("n", "<leader>s", ":wa<CR>", opts)
 -- save a quit
@@ -106,6 +106,7 @@ keymap(
 keymap("n", "<A-g>", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 keymap("n", "<A-f>", ":Telescope symbols<CR>", opts)
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>b", ":SidebarNvimToggle<CR>", opts)
---[[ keymap('n', '<leader>b', ':Neotree toggle<CR>', opts) ]]
+--[[ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) ]]
+keymap("n", "<leader>b1", ":SidebarNvimToggle<CR>", opts)
+keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+keymap("n", "<leader>b2", ":Vista!!<CR>", opts)

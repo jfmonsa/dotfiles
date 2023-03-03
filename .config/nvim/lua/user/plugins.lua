@@ -87,12 +87,16 @@ require("lazy").setup({
 	},
 
 	-- Layout
+	"MunifTanjim/nui.nvim",
 	{
 		"arsham/arshamiser.nvim",
 		dependencies = {
 			"arsham/arshlib.nvim",
 			"famiu/feline.nvim",
 			"rebelot/heirline.nvim",
+			-- intalled because checkhealth
+			"nanotee/sqls.nvim",
+			"arsham/listish.nvim",
 		},
 		config = function()
 			-- ignore any parts you don't want to use
@@ -116,21 +120,21 @@ require("lazy").setup({
     }, ]]
 	{
 		"akinsho/bufferline.nvim",
-		-- 	dependencies = { "https://github.com/moll/vim-bbye" },
+		dependencies = { "https://github.com/moll/vim-bbye" },
 	},
 	-- File explorer
-	--[[ {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      -- "nvim-lua/plenary.nvim",
-      -- "muniftanjim/nui.nvim"
-    },
-  }, ]]
 	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			--[[ "nvim-lua/plenary.nvim", ]]
+			--[[ "muniftanjim/nui.nvim", ]]
+		},
+	},
+	--[[ {
 		"kyazdani42/nvim-tree.lua",
 		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
-	},
+	}, ]]
 
 	{
 		"sidebar-nvim/sidebar.nvim",
@@ -143,6 +147,7 @@ require("lazy").setup({
 	},
 
 	-- tagviewer
+	{ "universal-ctags/ctags", priority = 998 },
 	{
 		"liuchengxu/vista.vim",
 		config = function()
@@ -151,8 +156,8 @@ require("lazy").setup({
 			g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 			g.vista_default_executive = "ctags"
 			cmd([[let g:vista#renderer#enable_icon = 1]])
+			cmd([[let g:vista_default_executive = 'ctags']])
 		end,
-		dependencies = { "universal-ctags/ctags" },
 	},
 	--[[ {
 		"petertriho/nvim-scrollbar",
@@ -213,4 +218,9 @@ require("lazy").setup({
 	"nvim-telescope/telescope-media-files.nvim",
 	"nvim-telescope/telescope-symbols.nvim",
 	--   "kdheepak/lazygit.nvim",
+	"folke/todo-comments.nvim",
+	-- vim wiki
+	{
+		"vimwiki/vimwiki",
+	},
 })
