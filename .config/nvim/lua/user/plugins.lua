@@ -209,8 +209,7 @@ require("lazy").setup({
 	{
 		"dkarter/bullets.vim",
 		config = function()
-			vim.cmd([[
-        let g:bullets_enabled_file_types = ['markdown','text','gitcommit','scratch']])
+			vim.cmd("let g:bullets_enabled_file_types = ['markdown','text','gitcommit','scratch']")
 		end,
 	},
 	{
