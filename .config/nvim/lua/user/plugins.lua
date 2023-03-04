@@ -52,8 +52,10 @@ require("lazy").setup({
 			{ "j-hui/fidget.nvim", opts = {} },
 			-- Additional lua configuration, makes nvim stuff amazing!
 			-- 'folke/neodev.nvim',
+			-- "tiny plugin adds vscode-like pictograms to neovim built-in lsp:"
 		},
 	},
+	"onsails/lspkind.nvim",
 
 	-- Autocompletion
 	{
