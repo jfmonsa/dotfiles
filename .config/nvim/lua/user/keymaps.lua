@@ -18,11 +18,12 @@ vim.g.maplocalleader = " "
 
 -- ====== Global words ======
 -- reload configuracion
-keymap("n", "<leader>r", ":source %<CR>", opts)
+keymap("n", "<leader>r", ":w | source %<CR>", opts)
 -- fast saving with <leader> and s
 keymap("n", "<leader>s", ":wa<CR>", opts)
 -- save a quit
-keymap("n", "<leader>q", ":xa<CR>", opts)
+keymap("n", "<leader>qs", ":xa<CR>", opts)
+keymap("n", "<leader>qq", ":qa<CR>", opts)
 
 -- == Windows
 -- move around splits using Ctrl + {h,j,k,l}
@@ -99,14 +100,15 @@ keymap("n", "<C-g>", ":LazyGit<CR>", opts) -- open/close
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap(
 	"n",
-	"<leader>t",
+	"<leader>ff",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
 	opts
 )
-keymap("n", "<A-g>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-keymap("n", "<A-f>", ":Telescope symbols<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope symbols<CR>", opts)
 --[[ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) ]]
-keymap("n", "<leader>b1", ":SidebarNvimToggle<CR>", opts)
+keymap("n", "<leader>b3", ":SidebarNvimToggle<CR>", opts)
 keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
-keymap("n", "<leader>b2", ":Vista!!<CR>", opts)
+keymap("n", "<leader>b1", ":Vista!!<CR>", opts)
+keymap("n", "<leader>b2", ":TroubleToggl <CR>", opts)

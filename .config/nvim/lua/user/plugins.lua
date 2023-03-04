@@ -159,6 +159,13 @@ require("lazy").setup({
 			cmd([[let g:vista_default_executive = 'ctags']])
 		end,
 	},
+	-- Lua
+	{
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup({})
+		end,
+	},
 
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{
