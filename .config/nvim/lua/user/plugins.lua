@@ -136,6 +136,7 @@ require("lazy").setup({
 		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
 	}, ]]
 
+	-- tagviewer and general overviem
 	{
 		"sidebar-nvim/sidebar.nvim",
 		config = function()
@@ -145,8 +146,7 @@ require("lazy").setup({
 		end,
 		dependencies = { "sidebar-nvim/sections-dap" },
 	},
-
-	-- tagviewer
+	--this doesn't seem to work, use pacman -S ctags instead
 	{ "universal-ctags/ctags", priority = 998 },
 	{
 		"liuchengxu/vista.vim",
@@ -159,35 +159,14 @@ require("lazy").setup({
 			cmd([[let g:vista_default_executive = 'ctags']])
 		end,
 	},
-	--[[ {
-		"petertriho/nvim-scrollbar",
-		config = function()
-			require("scrollbar").setup()
-			local colors = require("aarshamiser_light").setup()
-			require("scrollbar").setup({
 
-				handle = {
-					color = colors.bg_highlight,
-				},
-				marks = {
-					Search = { color = colors.orange },
-					Error = { color = colors.error },
-					Warn = { color = colors.warning },
-					Info = { color = colors.info },
-					Hint = { color = colors.hint },
-					Misc = { color = colors.purple },
-				},
-			})
-		end,
-	}, ]]
-	-- tagviewer
-	--[[ {
-        "liuchengxu/vista.vim",
-        config = function()
-                    require("config.vista")
-        end,
-    }, ]]
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	},
 	-- Other plugins
 	"norcalli/nvim-colorizer.lua",
 	"numtostr/comment.nvim", -- easily comment stuff
@@ -212,6 +191,7 @@ require("lazy").setup({
 			require("autoclose").setup({})
 		end,
 	},
+	"andymass/vim-matchup",
 
 	-- telescope
 	"nvim-telescope/telescope.nvim",
@@ -222,5 +202,23 @@ require("lazy").setup({
 	-- vim wiki
 	{
 		"vimwiki/vimwiki",
+		config = function()
+			vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")
+		end,
+	},
+	{
+		"dkarter/bullets.vim",
+		config = function()
+			vim.cmd([[
+        let g:bullets_enabled_file_types = ['markdown','text','gitcommit','scratch']])
+		end,
+	},
+	{
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({})
+		end,
 	},
 })
