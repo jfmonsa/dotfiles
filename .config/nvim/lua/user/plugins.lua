@@ -210,15 +210,9 @@ require("lazy").setup({
 	"folke/todo-comments.nvim",
 	-- vim wiki
 	{
-		"vimwiki/vimwiki",
+		"jakewvincent/mkdnflow.nvim",
 		config = function()
-			vim.cmd("let g:vimwiki_list = [{'path': '~/Desktop/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")
-		end,
-	},
-	{
-		"dkarter/bullets.vim",
-		config = function()
-			vim.cmd("let g:bullets_enabled_file_types = ['markdown','text','gitcommit','scratch']")
+			require("mkdnflow").setup()
 		end,
 	},
 	{

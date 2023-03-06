@@ -50,10 +50,10 @@ keymap("n", "<S-c>", ":Telescope buffers<CR>", opts) -- Explore buffers
 -- Press jk fast to enter
 --  keymap("i", "jk", "<esc>", opts)
 -- don't use arrow keys
-keymap("", "<up>", "<nop>", { noremap = true })
+--[[ keymap("", "<up>", "<nop>", { noremap = true })
 keymap("", "<down>", "<nop>", { noremap = true })
 keymap("", "<left>", "<nop>", { noremap = true })
-keymap("", "<right>", "<nop>", { noremap = true })
+keymap("", "<right>", "<nop>", { noremap = true }) ]]
 keymap("i", "<C-h>", "<left>", opts)
 keymap("i", "<C-j>", "<down>", opts)
 keymap("i", "<C-k>", "<up>", opts)

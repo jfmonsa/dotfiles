@@ -44,3 +44,22 @@ end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+vim.cmd("set wrap")
+-- vim.cmd("let colorcolum=80")
+-- vim.cmd("let textwidth=80") -- for .txt and .md files
+
+-- Spell check
+vim.api.nvim_exec(
+	[[
+    augroup markdownSpell
+        autocmd!
+        autocmd FileType markdown setlocal spell spelllang=es
+        autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+    augroup END
+  ]],
+	false
+)
+-- :set spelllang=en_us
+
+-- don't auto commenting new lines
+vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])

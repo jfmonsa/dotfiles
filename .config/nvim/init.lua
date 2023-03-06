@@ -15,4 +15,3 @@ require("user.autopairs")
 require("user.comment")
 require("colorizer").setup() -- further config https://github.com/norcalli/nvim-colorizer.lua
 require("user.todo-comments")
-vim.cmd("let g:vimwiki_list = [{'path': '~/hdd/wiki/'}]")
