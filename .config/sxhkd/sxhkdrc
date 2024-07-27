@@ -1,0 +1,53 @@
+####################
+# SXHKD CONFIG
+####################
+
+###### Launch Apps ######
+#-- Browser
+super + b
+	firefox --browser
+#-- firefox privated window
+super + shift + b
+	firefox --private-window
+
+#-- File manager
+super + e
+	zzzfm
+
+#-- screen shots
+super + shift + s
+	timeout 40s flameshot gui
+# delay of 3 seconds
+super + shift + d + s
+	timeout 40s flameshot gui -d 3000
+# full screen shot
+super + f + s
+	flameshot full
+
+#-- Emoji selector
+super + period
+	rofi -modi emoji -show emoji
+###### Launch Apps ######
+
+##### Power managment ####
+super + {alt,ctrl,alt + ctrl} + Menu
+	systemctl {suspend,reboot,poweroff}
+##### Power managment ####
+
+##### Volume ####
+super + {F10, F11, F12}
+	amixer -q set Master {toggle,5%-,5%+}
+# -- support for keyboards with media keys
+{XF86AudioMute,XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	amixer -q set Master {toggle,5%-,5%+}
+##### Volume ####
+
+##### sxhkd ####
+#-- show config
+#super + shift + s
+	#kitty @ bat /home/jfmonsa/.config/sxhkd/sxhkdrc
+	
+#-- Restart sxhkd hotkey daemon
+super + shift + x
+	pkill -usr1 -x sxhkd 
+	#&& notify-send "sxhkd config" "Reloaded."
