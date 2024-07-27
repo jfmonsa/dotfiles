@@ -6,18 +6,22 @@
 Some screenshots of my setup:
 
 <p align="center">
-  <img width="460" height="300" src="2024-07-27_14-17.png">
+  <img width="460" height="300" src="assets/2024-07-27_14-17.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="2024-07-27_14-17_1.png">
+  <img width="460" height="300" src="assets/2024-07-27_14-17_1.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="2024-07-27_14-20.png">
+  <img width="460" height="300" src="assets/2024-07-27_14-20.png">
 </p>
 
 # How to use?
 1. Clone this repo in your preferred location
 2. Create symbolic links between the files/folders in the repo to your home (delete the existing ones of your home)
+
+> [!NOTE]  
+> Ignore the assets folder and the markdown files
+
 
 # Useful Info
 
