@@ -1,9 +1,19 @@
 # dotfiles
 
 + This repo is mantain for personal use, although you can use it for your dotfiles as well
-
 + This dotfiles are based on arch it linux but you can use it for other distros
 
+Some screenshots of my setup:
+
+<p align="center">
+  <img width="460" height="300" src="2024-07-27_14-17.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="2024-07-27_14-17_1.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="2024-07-27_14-20.png">
+</p>
 
 # How to use?
 1. Clone this repo in your preferred location

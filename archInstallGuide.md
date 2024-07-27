@@ -355,7 +355,7 @@ read [this](https://itsfoss.com/best-window-managers/) to get an idea of what a 
 ## 13.3 Additional packages
 
 ## 14. Post installation
-See [my guide](../README.md) about post installation programs
+See [my guide](postinstallSoftware.md) about post installation programs
 
 ## Credits
 + I Updated this personal guide base on https://github.com/QuantiniumX/Guide-to-install-Arch-Linux
