@@ -53,11 +53,11 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 -- ################### Autostart apps - Custom #######################
 --awful.spawn.with_shell("usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &") --wrote in /etc/xdg/autostart/
 awful.spawn.with_shell("nitrogen --restore") --write this in the theme file
-awful.spawn.with_shell("setxkbmap -layout latam,latam")
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell('setxkbmap -option caps:escape,shift:both_capslock')
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &")
 awful.spawn.with_shell("sxhkd")
+awful.spawn.with_shell("setxkbmap -layout latam,latam")
+awful.spawn.with_shell('xmodmap -e "keycode 9 = Caps_Lock"; xmodmap -e "keycode 66 = Escape')
 awful.spawn.with_shell("numlockx on")
 -- ################### Autostart apps - Custom #######################
 

@@ -49,5 +49,4 @@ super + {F10, F11, F12}
 	
 #-- Restart sxhkd hotkey daemon
 super + shift + x
-	pkill -usr1 -x sxhkd 
-	#&& notify-send "sxhkd config" "Reloaded."
+	pkill -usr1 -x sxhkd && notify-send "sxhkd config" "Reloaded."
