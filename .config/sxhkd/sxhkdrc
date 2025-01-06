@@ -6,6 +6,14 @@
 #-- Browser
 super + b
 	firefox --browser
+#-- Obsidian (notes)
+super + o
+	obsidian
+
+#-- code editor (vscode)
+super + v
+	code
+
 #-- firefox privated window
 super + shift + b
 	firefox --private-window

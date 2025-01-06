@@ -1,46 +1,51 @@
 # Post install software
 
-Current packages installed:
+Post instalation packages installed:
 
 ## Summary
-+ Base software: base, base-devel, dhcpcd, dosfstools, efibootmgr, grub, git, linux, linux-firmware, linux-headers, man, man-db, mtools, networkmanager, openssh-askpass, xf86-video-vesa
-	+ microcode amd-ucode for amd cpus
-	+ nvidia (Driver for GTX 1050ti)
-+ Display manger (login manager): gdm
-+ Window manager: awesome
-+ Window composer: picom
-+ App Launcher: rofi
-+ Audio: pavucontrol, alsa-utils
-+ Shell: zsh:
+
+- Base software: base, base-devel, dhcpcd, dosfstools, efibootmgr, grub, git, linux, linux-firmware, linux-headers, man, man-db, mtools, networkmanager, openssh-askpass, xf86-video-vesa
+  - microcode amd-ucode for amd cpus
+  - nvidia (Driver for GTX 1050ti)
+- Display manger (login manager): gdm
+- Window manager: awesome
+- Window composer: picom
+- App Launcher: rofi
+- Audio: pavucontrol, alsa-utils
+- Shell: zsh:
+
 ```
 #set zsh as default shell
 sudo pacman -s zsh
 sudo chsh -s /usr/bin/zsh root
 chsh -s /usr/bin/zsh $USER
 ```
-+ Terminal: kitty
-+ AUR: paru
-+ sxhkd: hotkeys to execute scripts or launch apps
-+ Fonts: ttf-fira-code, ttf-nerd-fonts-symbols
-+ Polkit (root acces for applications, a window asking your password to authorize apps): polkit, polkit-gnome
-+ File manager: zzzfm-bin (Replacing un-mantained spaceFM)
-+ Auto-mount removable storage devices: udiskie (E.g. insert a usb and type `udiskie` in the terminal to be able to access it)
-+ Browser: Firefox
-+ Screenshots: Flameshot
-+ Wallpaper selector: nitrogen
-+ Themes:  papirus-icon-theme, arc-gtk-theme, breeze-gtk, breeze, lxappearance, qt5ct
-+ Study: Obsidian, anki
-+ Password admin: Keepassxd
-+ CLI tools: bat, lsd, htop, pfetch, tree
-+ Code Editors: vim, visual-studio-code-bin
-+ Watch videos: vlc
-+ RAR management: peazip
-+ Office suite: Libre office
+
+- Terminal: kitty
+- AUR: paru
+- sxhkd: hotkeys to execute scripts or launch apps
+- Fonts: ttf-fira-code, ttf-nerd-fonts-symbols
+- Polkit (root acces for applications, a window asking your password to authorize apps): polkit, polkit-gnome
+- File manager: zzzfm-bin (Replacing un-mantained spaceFM)
+- Auto-mount removable storage devices: udiskie (E.g. insert a usb and type `udiskie` in the terminal to be able to access it)
+- Browser: Firefox
+- Screenshots: Flameshot
+- Wallpaper selector: nitrogen
+- Themes: papirus-icon-theme, arc-gtk-theme, breeze-gtk, breeze, lxappearance, qt5ct
+- Study: Obsidian, anki
+- Password admin: Keepassxd
+- CLI tools: bat, lsd, htop, pfetch, tree
+- Code Editors: vim, visual-studio-code-bin
+- Watch videos: vlc
+- RAR management: peazip
+- Office suite: Libre office
 
 ### Additional
-+ Custom zsh prompt: oh-my-zsh
-+ Wallpapers: Wall heaven, debian art
-+ Color scheme: for terminal use kitty script (search themes in kitty documentation), search for extensions for themes in vscode and obsidian
+
+- Custom zsh prompt: oh-my-zsh
+- Wallpapers: Wall heaven, debian art
+- Color scheme: for terminal use kitty script (search themes in kitty documentation), search for extensions for themes in vscode and obsidian
+
 ## Complete list
 
 ```
