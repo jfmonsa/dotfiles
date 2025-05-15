@@ -92,15 +92,31 @@ compdef _directories md
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
-# Define aliases.
-alias tree='tree -a -I .git'
-
-# Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
-
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
+
+# pnpm
+export PNPM_HOME="/home/jfmonsa/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+export COREPACK_ENABLE_AUTO_PIN=0
+# pnpm end
+
+# golang
+export PATH=$PATH:$HOME/go/bin
+# golang
+
+# set latam keyboard
+setxkbmap -layout latam,latam
+
+# Define aliases.
+alias tree='tree -a -I .git'
+# Add flags to existing aliases.
+alias ls="${aliases[ls]:-ls} -A"
