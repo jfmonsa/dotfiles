@@ -98,6 +98,7 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
+source /usr/share/nvm/init-nvm.sh
 
 # pnpm
 export PNPM_HOME="/home/jfmonsa/.local/share/pnpm"
@@ -112,6 +113,10 @@ export COREPACK_ENABLE_AUTO_PIN=0
 # golang
 export PATH=$PATH:$HOME/go/bin
 # golang
+
+# other PATH additions
+export PATH=$PATH:$HOME/bin
+export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
 
 # set latam keyboard
 setxkbmap -layout latam,latam
